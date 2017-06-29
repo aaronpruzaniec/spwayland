@@ -5,10 +5,12 @@
 /* Generic variables */
 @sitePadding: 32px;
 @mobilePadding: 20px;
-@headerVertPadding: 20px;
+@headerVertPadding: 51px;
 @pageWidth: 1020px;
 @pageWidthNarrow: 700px;
 @galleryHeight: 600px;
+@navHeight:132px;
+@primaryColor:#b80000;
 
 
 // Mixins
@@ -360,11 +362,10 @@ blockquote {
   width: auto;
   margin: auto;
   .border-box;
-}
+} 
 
 .footer-inner,
 .pre-footer-inner { max-width: @pageWidth; }
-
 #header {
   padding: 0 @headerVertPadding;
   -webkit-box-sizing: border-box;
@@ -375,8 +376,8 @@ blockquote {
   left: 0;
   width: 100%;
   line-height: 1em;
-  background-color: fade(@headerBgColor, 100%);
-  .font-smoothing(@headerBgColor);
+  background-color: fade(@spwHeaderBgColor, 100%);
+  .font-smoothing(@spwHeaderBgColor);
   position: relative;
   a {
     text-decoration: none;
@@ -425,8 +426,8 @@ body:not(.sqs-edit-mode) .pre-footer-inner .sqs-layout.empty {max-height: 0;}
 body:not(.has-banner-image),
 .collection-type-gallery.has-banner-image {
   &.transparent-header #header {
-    background-color: fade(@headerBgColor, 100%);
-    .font-smoothing(@headerBgColor);
+    background-color: fade(@spwHeaderBgColor, 100%);
+    .font-smoothing(@spwHeaderBgColor);
     position: relative;
   }
 }
@@ -595,10 +596,16 @@ li.filter {
     #headerNav {
       text-align: right;
     }
-
+    #logoWrapper{
+      margin-left:-@spwLogoContainerWidth/2;
+      position:absolute;
+      left:50%;
+      top:0px;
+    }
     #logoWrapper,
     #logoImage {
-      width: @logoContainerWidth;
+      width: @spwLogoContainerWidth;
+      height: @spwLogoContainerWidth;
     }
     #siteTitleWrapper,
     #siteTitle {
@@ -1118,14 +1125,14 @@ body:not(.collection-type-gallery).banner-button-corner-style-pill {
 
 // MAIN NAVIGATION
 
-#headerNav nav,
+.header-inner,
 #sidecarNav nav {
   a,
   a:visited,
   .folder-toggle {
     .nav-font;
     line-height: 1em;
-    color: @navColor;
+    color: @spwNavColor;
     &:hover {
       color: @navActiveColor;
     }
@@ -1134,15 +1141,22 @@ body:not(.collection-type-gallery).banner-button-corner-style-pill {
     > a,
     > a:visited,
     > .folder-toggle{
-      color:@navActiveColor;
+      text-decoration: underline;
     }
   }
   .subnav{
-    background-color: fade(@headerBgColor, 100%);
+    background-color: fade(@spwHeaderBgColor, 100%);
   }
 
 }
+.contributeContainer{
+  position:absolute;
+  top:@navHeight;
+  left:0px;
+  background-color: @primaryColor;
+  width:100%;
 
+}
 
 
 
@@ -1155,7 +1169,7 @@ body:not(.collection-type-gallery).banner-button-corner-style-pill {
     width: 100%;
     visibility: hidden;
     opacity: 0;
-    background-color: @headerBgColor;
+    background-color: @spwHeaderBgColor;
     .translate3d(0);
     .transition3(opacity 0.14s ease-in-out; visibility 0s 0.14s linear; top 0.14s ease-in-out);
   }
@@ -1438,8 +1452,8 @@ body:not(.collection-type-gallery).banner-button-corner-style-pill {
   // we toggle visibility here when it's closed, otherwise
   // the sidecar will stick out below the footer on short pages
   visibility: hidden;
-  background-color: fade(@headerBgColor, 100%);
-  .font-smoothing(@headerBgColor);
+  background-color: fade(@spwHeaderBgColor, 100%);
+  .font-smoothing(@spwHeaderBgColor);
   .border-box;
   .transition2(height 0s 0.14s linear, visibility 0s 0.14s linear);
   nav {
@@ -1486,7 +1500,7 @@ body:not(.collection-type-gallery).banner-button-corner-style-pill {
     text-align: right;
     cursor: pointer;
     user-select: none;
-    color: @navColor;
+    color: @spwNavColor;
     width: 22px;
     height: 22px;
     .top-bar,
@@ -1494,7 +1508,7 @@ body:not(.collection-type-gallery).banner-button-corner-style-pill {
     .bottom-bar {
       width: 22px;
       height: 2px;
-      background-color: fade(@navColor, 100%);
+      background-color: fade(@spwNavColor, 100%);
       -webkit-transition: -webkit-transform 0.1s 0s ease-in-out, top 0.1s 0.1s ease-in-out;
          -moz-transition: -moz-transform 0.1s 0s ease-in-out, top 0.1s 0.1s ease-in-out;
           -ms-transition: -ms-transform 0.1s 0s ease-in-out, top 0.1s 0.1s ease-in-out;
@@ -1532,7 +1546,7 @@ body:not(.collection-type-gallery).banner-button-corner-style-pill {
     line-height: 1em;
     text-align: left;
     overflow: auto;
-    background-color: fade(@headerBgColor, 100%);
+    background-color: fade(@spwHeaderBgColor, 100%);
     .border-box;
     -webkit-transform: translate3d(260px, 0, 0);
        -moz-transform: translate3d(260px, 0, 0);
@@ -1645,26 +1659,26 @@ body:not(.collection-type-gallery).banner-button-corner-style-pill {
 
 .enable-nav-button #headerNav,
 .enable-nav-button #sidecarNav {
-  nav > div:not(.folder):last-child a {
-    .nav-button-font;
-    margin-left:1em;
-    padding: 1em 1.5em !important;
-    display: block;
-    background-color: @navButtonColor;
-    .font-smoothing(@navButtonColor);
-    color: @navButtonTextColor;
-    .transition2(background-color 0.1s 0.0s ease-in-out, color 0.1s 0.0s ease-in-out);
-    &:hover {
-      background-color: fade(@navButtonColor, 80%);
-    }
-  }
+  // nav > div:not(.folder):last-child a {
+  //   .nav-button-font;
+  //   margin-left:1em;
+  //   padding: 1em 1.5em !important;
+  //   display: block;
+  //   background-color: @navButtonColor;
+  //   .font-smoothing(@navButtonColor);
+  //   color: @navButtonTextColor;
+  //   .transition2(background-color 0.1s 0.0s ease-in-out, color 0.1s 0.0s ease-in-out);
+  //   &:hover {
+  //     background-color: fade(@navButtonColor, 80%);
+  //   }
+  // }
 }
 
 .nav-button-style-outline.enable-nav-button #headerNav,
 .nav-button-style-outline.enable-nav-button #sidecarNav {
   nav > div:not(.folder):last-child a {
     background-color: transparent;
-    .font-smoothing(@headerBgColor);
+    .font-smoothing(@spwHeaderBgColor);
     border: 2px solid @navButtonColor;
     color: @navButtonColor;
     &:hover {

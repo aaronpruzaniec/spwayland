@@ -2,13 +2,13 @@
 /* Header */
 
 // tweak: { "type" : "color", "title" : "Header Background Color", "category" : "Site Header", "target" : "body:not(.has-banner-image) #header" }
-@headerBgColor: #1B1B1B;
+@spwHeaderBgColor: rgba(255,255,255,0);
 
 // tweak: { "type" : "checkbox", "title" : "Transparent Header", "label" : "Transparent on Banner Images", "active" : "true", "category" : "Site Header", "target" : "#header" }
 
 // tweak: { "type" : "font", "title" : "Site Title Font", "category" : "Site Header", "showOnlyWhenPresent" : "#siteTitle", "target" : "#siteTitle", "loadAllVariants" : "true" }
 .site-title-font {
-  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Changa One', helvetica, cursive;
   font-weight: 600;
   font-style: normal;
   font-size: 20px;
@@ -20,7 +20,7 @@
 @siteTitleColor: #FFF;
 
 // tweak: { "type" : "value", "title" : "Logo Container Width", "min" : 50, "max" : 500, "step" : 5, "category" : "Site Header", "target" : "#logoImage", "showOnlyWhenPresent" : "#logoImage", "js": "true" }
-@logoContainerWidth: 150px;
+@spwLogoContainerWidth: 104px;
 
 // tweak: { "type" : "value", "title" : "Site Title Container Width", "min" : 50, "max" : 500, "step" : 5, "category" : "Site Header", "target" : "#siteTitle", "showOnlyWhenPresent" : "#siteTitle", "js": "true" }
 @siteTitleContainerWidth: 255px;
@@ -30,8 +30,7 @@
 
 // tweak: { "type" : "font", "title" : "Nav Link Font", "category" : "Site Navigation", "target" : "body:not(.force-mobile-nav) #mainNavWrapper, #sidecarNav" }
 .nav-font {
-  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 600;
+  font-family: 'Changa One', helvetica, cursive !important;
   font-style: normal;
   font-size: 14px;
   letter-spacing: 1px;
@@ -40,7 +39,7 @@
 }
 
 // tweak: { "type" : "color", "title" : "Nav Link Color", "category" : "Site Navigation", "target" : "body:not(.force-mobile-nav) #mainNavWrapper, #sidecarNav" }
-@navColor: #666;
+@spwNavColor: #033b72;
 
 // tweak: { "type" : "color", "title" : "Nav Link (Active)", "category" : "Site Navigation", "target" : "body:not(.force-mobile-nav) #mainNavWrapper, #sidecarNav" }
 @navActiveColor: #EEE;

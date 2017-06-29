@@ -20,7 +20,7 @@
 
       <div class="sqs-cart-dropzone"></div>
 
-      <header id="header" class="show-on-scroll" data-offset-el=".index-section" data-offset-behavior="bottom" role="banner">
+      <header id="header" class="show-on-scroll header1" data-offset-el=".index-section" data-offset-behavior="bottom" role="banner">
         <div class="header-inner">
           {.section website}<div id="{.if logoImageUrl}logoWrapper{.or}siteTitleWrapper{.end}" class="wrapper" data-content-field="site-title">
             {.section logoImageUrl}
@@ -262,6 +262,9 @@
     </div>
 
     <squarespace:script src="site-bundle.js" combo="false" />
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/scripts/spw-script.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Changa+One:400,400i" rel="stylesheet">
     {squarespace-footers}
 
   </body>
