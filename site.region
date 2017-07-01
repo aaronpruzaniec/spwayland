@@ -20,11 +20,11 @@
 
       <div class="sqs-cart-dropzone"></div>
 
-      <header id="header" class="show-on-scroll header1" data-offset-el=".index-section" data-offset-behavior="bottom" role="banner">
+      <header id="header" class="show-on-scroll" data-offset-el=".index-section" data-offset-behavior="bottom" role="banner">
         <div class="header-inner">
           {.section website}<div id="{.if logoImageUrl}logoWrapper{.or}siteTitleWrapper{.end}" class="wrapper" data-content-field="site-title">
             {.section logoImageUrl}
-              <h1 id="logoImage"><a href="/"><img src="{logoImageUrl}?format=1500w" alt="{siteTitle}" /></a></h1>
+              <h1 id="logoImage"><a href="/"><!-- <img src="{logoImageUrl}?format=1500w" alt="{siteTitle}" /> --></a></h1>
             {.or}
               <h1 id="siteTitle" class="site-title"><a href="/">{siteTitle}</a></h1>
             {.end}

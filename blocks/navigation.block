@@ -1,11 +1,9 @@
 {.section items}<div id="mainNavWrapper" class="nav-wrapper" data-content-field="navigation-mainNav">
   <nav id="mainNavigation" data-content-field="navigation-mainNav">
-    <div class="left"></div>
-    <div class="right"></div>
     {.repeated section @}
       {.collection?}
         {.index?}
-        <div class="index{.if active} active{.end}{.section collection}{.if homepage} homepage{.end}{.end}">
+        <div class="index{.if active} active{.end}{.section collection}{.if homepage} collection homepage{.end}{.end}">
           <a href="{collection.fullUrl}">
             {collection.navigationTitle}
           </a>
