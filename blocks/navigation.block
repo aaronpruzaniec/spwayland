@@ -24,7 +24,7 @@
             </div>
             {.end}
             {.section externalLink}
-            <div class="external">
+            <div class="external collection">
               <a href="{url}"{.section newWindow} target="_blank"{.end}>
                 {title}
               </a>

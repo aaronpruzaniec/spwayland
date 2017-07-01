@@ -31,6 +31,7 @@
 // tweak: { "type" : "font", "title" : "Nav Link Font", "category" : "Site Navigation", "target" : "body:not(.force-mobile-nav) #mainNavWrapper, #sidecarNav" }
 .nav-font {
   font-family: 'Changa One', helvetica, cursive !important;
+  font-weight: 600;
   font-style: normal;
   font-size: 14px;
   letter-spacing: 1px;
@@ -39,7 +40,7 @@
 }
 
 // tweak: { "type" : "color", "title" : "Nav Link Color", "category" : "Site Navigation", "target" : "body:not(.force-mobile-nav) #mainNavWrapper, #sidecarNav" }
-@spwNavColor: #033b72;
+@spwNavColor: @secondaryColor;
 
 // tweak: { "type" : "color", "title" : "Nav Link (Active)", "category" : "Site Navigation", "target" : "body:not(.force-mobile-nav) #mainNavWrapper, #sidecarNav" }
 @navActiveColor: #EEE;
@@ -129,10 +130,10 @@
 
 // tweak: { "type" : "font", "title" : "Page Text Font", "category" : "Main Content", "target" : "body:not(.collection-type-index) #content p, .collection-type-index .page-content p", "loadAllVariants" : "true" }
 .body-font {
-  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family:calluna, times, 'times new', serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 16px;
+  font-size: 18px;
   letter-spacing: 0px;
   line-height: 1.6em;
 }
@@ -148,11 +149,11 @@
 
 // tweak: { "type" : "font", "title" : "Heading 1 Font", "category" : "Main Content", "target" : "body:not(.collection-type-index) #content h1, .collection-type-index .page-content h1, .entry-title" }
 .heading1-font {
-  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 400;
+  font-family: 'Changa One', helvetica, cursive !important;
+  font-weight: 600;
   font-style: normal;
-  font-size: 48px;
-  letter-spacing: 0px;
+  font-size: 32px;
+  letter-spacing: 1px;
   text-transform: none;
   line-height: 1.2em;
 }

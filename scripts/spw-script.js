@@ -12,10 +12,10 @@ builldNavigation = function(){
     // set variables
     SPW.nav = {}
     SPW.nav.headerCount = 1;
-    SPW.nav.count = $('header:first-child #mainNavigation .collection').length;
+    numberHeaders();
+    SPW.nav.count = $('#header #mainNavigation > div').length;
     SPW.nav.rightCount = Math.round((SPW.nav.count)/2);
     SPW.nav.leftCount = SPW.nav.count - SPW.nav.rightCount;
-    numberHeaders();
     sortNavigation();
     balanceSides();
     // sortNav(1);
@@ -39,18 +39,23 @@ sortNavigation = function(selector){
 balanceSides = function(){
     SPW.nav.leftWidth = 0;
     SPW.nav.rightWidth = 0;
-    for(i=0;i<SPW.nav.leftCount;i++){
-        SPW.nav.leftWidth += $('.header:nth-child('+i+')').outerWidth();
+    for(i=1;i<SPW.nav.leftCount;i++){
+        SPW.nav.leftWidth += $('#header .collection:nth-child('+(i)+')').outerWidth();
     }
-    for(i=0;i<SPW.nav.rightCount;i++){
-        SPW.nav.rightWidth += $('.header:nth-child('+(i+SPW.nav.leftCount)+')').outerWidth();
+    for(i=1;i<SPW.nav.rightCount;i++){
+        SPW.nav.rightWidth += $('#header .collection:nth-child('+(i+SPW.nav.leftCount)+')').outerWidth();
     }
-}
-testFunct = function(){
-    alert('testFunct');
+    SPW.nav.lrDiff = (SPW.nav.leftWidth - SPW.nav.rightWidth)+18/*18=offset calc*/;
+    // if negative, apply as left padding, if positive apply as right padding
+    if(SPW.nav.lrDiff<=0){
+        $('#header #mainNavigation').css({'padding-left':(SPW.nav.lrDiff*(-1))+'px'});
+    }else{
+        $('#header #mainNavigation').css({'padding-right':(SPW.nav.lrDiff)+'px'});
+    }
 }
 $(document).ready(function(){
     builldNavigation();
 });
 $(window).on('load',function(){
+
 });

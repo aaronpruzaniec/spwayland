@@ -11,6 +11,7 @@
 @galleryHeight: 600px;
 @navHeight:132px;
 @primaryColor:#b80000;
+@secondaryColor:#033b72;
 
 
 // Mixins
@@ -116,7 +117,11 @@
 }
 
 body {
-  background-color: fade(@footerBgColor, 100%);
+  //background-color: fade(@footerBgColor, 100%);
+  background-image: url('/assets/spwaylandBackground.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50% 0%;
 }
 
 
@@ -124,6 +129,7 @@ body {
 
 #siteWrapper {
   .body-font;
+  content:'tetetet';
   color: @pageTextColor;
 }
 
@@ -163,6 +169,7 @@ a {
 
 h1, h2, h3{
   text-rendering: optimizeLegibility;
+  text-align:center;
 }
 
 article header {
@@ -176,7 +183,7 @@ h1,
 
 h1,
 .entry-title {
-  color:@heading1Color;
+  color:@secondaryColor;
 }
 
 h2 {
@@ -278,17 +285,17 @@ blockquote {
   border-width: 0;
   margin: @sitePadding 0;
   color: fade(@pageTextColor, 15%);
-  background-color: fade(@pageTextColor, 15%);
+  //background-color: fade(@pageTextColor, 15%);
 }
 
 #preFooter .sqs-block-horizontalrule hr {
   color: fade(@preFooterTextColor, 15%);
-  background-color: fade(@preFooterTextColor, 15%);
+  //background-color: fade(@preFooterTextColor, 15%);
 }
 
 #footer .sqs-block-horizontalrule hr {
   color: fade(@footerTextColor, 15%);
-  background-color: fade(@footerTextColor, 15%);
+  //background-color: fade(@footerTextColor, 15%);
 }
 
 
@@ -301,7 +308,7 @@ blockquote {
 }
 
 #siteWrapper {
-  background-color: fade(@pageBgColor, 100%);
+  //background-color: fade(@pageBgColor, 100%);
 }
 
 // for the bar in mobile
@@ -376,7 +383,7 @@ blockquote {
   left: 0;
   width: 100%;
   line-height: 1em;
-  background-color: fade(@spwHeaderBgColor, 100%);
+  //background-color: fade(@spwHeaderBgColor, 100%);
   .font-smoothing(@spwHeaderBgColor);
   position: relative;
   a {
@@ -426,14 +433,14 @@ body:not(.sqs-edit-mode) .pre-footer-inner .sqs-layout.empty {max-height: 0;}
 body:not(.has-banner-image),
 .collection-type-gallery.has-banner-image {
   &.transparent-header #header {
-    background-color: fade(@spwHeaderBgColor, 100%);
+    //background-color: fade(@spwHeaderBgColor, 100%);
     .font-smoothing(@spwHeaderBgColor);
     position: relative;
   }
 }
 
 #preFooter {
-  background-color: @preFooterBgColor;
+  //background-color: @preFooterBgColor;
   .font-smoothing(@preFooterBgColor);
 }
 #preFooter {
@@ -466,7 +473,8 @@ body:not(.has-banner-image),
 }
 
 #footer {
-  background-color: @footerBgColor;
+  background: #1b2234; /* Old browsers */
+  background: linear-gradient(to bottom, #1b2234 0%,#0f141f 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   .font-smoothing(@footerBgColor);
   .html-block{
     a,
@@ -592,6 +600,9 @@ li.filter {
       position: relative;
       z-index: 1000;
       text-align:center;
+    }
+    #mainNavigation{
+      font-size:0px;
     }
     .leftmiddle{
       margin-right:100px;
@@ -966,7 +977,7 @@ li.filter {
 .promoted-gallery-wrapper,
 .banner-thumbnail-wrapper,
 .sqs-featured-posts-gallery {
-  background-color: fade(@overlayColor,100%);
+  //background-color: fade(@overlayColor,100%);
   .font-smoothing(@overlayColor);
   .color-overlay {
     position: absolute;
@@ -1141,11 +1152,11 @@ body:not(.collection-type-gallery).banner-button-corner-style-pill {
   left:0px;
   width:100%;
   background-color: @primaryColor;
-  z-index:1;
+  z-index:100;
   color:#fff;
   a{
     font-size:15px !important;
-    padding:.5em 0;
+    padding:1em 0;
     display:block;
     margin:0 auto;
   }
@@ -1172,7 +1183,10 @@ body:not(.collection-type-gallery).banner-button-corner-style-pill {
     line-height: 1em;
     color: @spwNavColor;
     &:hover {
-      color: @navActiveColor;
+      color: lighten(@spwNavColor, 15%);
+    }
+    &:active {
+      color: lighten(@spwNavColor, 30%);
     }
   }
   .active{
