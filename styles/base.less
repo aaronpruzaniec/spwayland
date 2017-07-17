@@ -11,7 +11,10 @@
 @galleryHeight: 600px;
 @navHeight:132px;
 @primaryColor:#b80000;
-@secondaryColor:#033b72;
+@secondaryColor:#033b72; 
+@nonHomePageClassA:~"collection-type-page";
+@nonHomePageClassB:~"collection-type-blog";
+@homePageClass:~"collection-type-index";
 
 
 // Mixins
@@ -116,9 +119,11 @@
   color: white;
 }
 
+body.@{nonHomePageClassA},.@{nonHomePageClassB}{ 
+  background-image: url('/assets/spwaylandBackground.jpg');
+}
 body {
   //background-color: fade(@footerBgColor, 100%);
-  background-image: url('/assets/spwaylandBackground.jpg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: 50% 0%;
@@ -184,6 +189,10 @@ h1,
 h1,
 .entry-title {
   color:@secondaryColor;
+}
+
+footer,footer p{
+  .footer-font;
 }
 
 h2 {
@@ -394,24 +403,32 @@ blockquote {
     z-index: 1000;
   }
 }
+.@{homePageClass}{
+  #header {
+    padding: 0;
+    position: absolute;
+  }
+}
 
 .header-inner,
 .footer-inner,
 .pre-footer-inner .sqs-layout {
   .border-box;
 }
-.header-inner {
-  // position:relative;
-  padding: @headerVertPadding 0;
-  display: table;
-  width: 100%;
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+.@{nonHomePageClassA},.@{nonHomePageClassB}{ 
+  .header-inner {
+    // position:relative;
+    padding: @headerVertPadding 0;
+    display: table;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
 
 
-  -webkit-animation: header-anim 1s ease-in-out;
-  animation: header-anim 1s ease-in-out;
+    -webkit-animation: header-anim 1s ease-in-out;
+    animation: header-anim 1s ease-in-out;
+  }
 }
 .footer-inner{
   padding: (@sitePadding * 2) @sitePadding;
@@ -522,8 +539,38 @@ body:not(.has-banner-image),
   margin: auto;
   max-width: @pageWidth;
   padding: (@sitePadding * 3) @sitePadding;
-
   .font-smoothing(@pageBgColor);
+}
+.@{homePageClass}{
+  #page{
+    position:fixed;
+    z-index:1;
+    height: 100%;
+    width:100%;
+    background-color: red;
+    top:0px;
+    *{
+      //display: none !important;
+    }
+  }
+  .banner-thumbnail-wrapper{
+    display:none;
+  }
+  .sqs-layout.sqs-grid-12.columns-12{
+    .row.sqs-row{
+      display:none;
+    }
+    .row.sqs-row:nth-child(2){
+      display:block;
+      .col.sqs-col-4.span-4{
+        display: none;
+        &:nth-child(1){
+          display:block;
+        }
+      }
+    }
+    //>
+  }
 }
 
 #content {
@@ -584,41 +631,69 @@ li.filter {
 }
 
 @media only screen and (min-width: 641px) {
-  #header {
+// d-nav
+.@{nonHomePageClassA},.@{nonHomePageClassB}{ 
+    #header {
 
-    width: 100%;
+      width: 100%;
 
-    #logoWrapper,
-    #siteTitleWrapper,
-    #headerNav {
-      .border-box;
-      display: table-cell;
-      vertical-align: middle;
-    }
+      #logoWrapper,
+      #siteTitleWrapper,
+      #headerNav {
+        .border-box;
+        display: table-cell;
+        vertical-align: middle;
+      }
 
-    #mainNavWrapper {
-      position: relative;
-      z-index: 1000;
-      text-align:center;
+      #mainNavWrapper {
+        position: relative;
+        z-index: 1000;
+        text-align:center;
+      }
+      #mainNavigation{
+        font-size:0px;
+      }
+      .leftmiddle{
+        margin-right:100px;
+      }
+      .rightmiddle{
+        margin-left:100px;
+      }
+      #headerNav {
+        text-align: right;
+      }
+      #logoWrapper{
+        margin-left:-@spwLogoContainerWidth/2;
+        position:absolute;
+        top:(@navHeight - @spwLogoContainerWidth)/2;
+        left:50%;
+      }
+      #logoWrapper,
+      #logoImage {
+        width: @spwLogoContainerWidth;
+        height: @spwLogoContainerWidth;
+      }
+      #logoImage{
+        background-image: url('../assets/spwayland-logo.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      #siteTitleWrapper,
+      #siteTitle {
+        width: @siteTitleContainerWidth;
+      }
+
+      &.tweaking{
+        #logoWrapper,
+        #siteTitleWrapper,
+        #mainNavWrapper {
+          border:1px solid #14aaff;
+        }
+      }
+
     }
-    #mainNavigation{
-      font-size:0px;
-    }
-    .leftmiddle{
-      margin-right:100px;
-    }
-    .rightmiddle{
-      margin-left:100px;
-    }
-    #headerNav {
-      text-align: right;
-    }
-    #logoWrapper{
-      margin-left:-@spwLogoContainerWidth/2;
-      position:absolute;
-      top:(@navHeight - @spwLogoContainerWidth)/2;
-      left:50%;
-    }
+  }
+  .@{homePageClass}{
     #logoWrapper,
     #logoImage {
       width: @spwLogoContainerWidth;
@@ -627,38 +702,24 @@ li.filter {
     #logoImage{
       background-image: url('../assets/spwayland-logo.png');
       background-repeat: no-repeat;
-      background-size: cover;
+      background-size: cover; 
     }
-    #siteTitleWrapper,
-    #siteTitle {
-      width: @siteTitleContainerWidth;
-    }
-
-    &.tweaking{
-      #logoWrapper,
-      #siteTitleWrapper,
-      #mainNavWrapper {
-        border:1px solid #14aaff;
-      }
-    }
-
   }
-}
 
-#logoImage {
-  margin: 0;
-  font-size: 0;
-  max-width: 100%;
-
-  a { display: block; }
-  img {
-    height: auto;
-    max-height: 100px;
-    width: auto;
+  #logoImage {
+    margin: 0;
+    font-size: 0;
     max-width: 100%;
+
+    a { display: block; }
+    img {
+      height: auto;
+      max-height: 100px;
+      width: auto;
+      max-width: 100%;
+    }
   }
 }
-
 #siteTitle,
 #siteTitle a {
   .site-title-font;
@@ -1146,31 +1207,41 @@ body:not(.collection-type-gallery).banner-button-corner-style-pill {
 
 
 // MAIN NAVIGATION
-#contributeContainer{
-  position:absolute;
-  top:@navHeight;
-  left:0px;
-  width:100%;
-  background-color: @primaryColor;
-  z-index:100;
-  color:#fff;
-  a{
-    font-size:15px !important;
-    padding:1em 0;
-    display:block;
-    margin:0 auto;
+.@{homePageClass}{
+  #contributeContainer{
+    position: absolute;
+  }
+  .collection{
+    display: block !important;
   }
 }
-#contributeContainer{
-  a{
-    color:#fff !important; 
-    text-align:center;
-  }
-  .contributeButton{
-    text-align:center;
-    display:none;
-    &:first-child{
+.@{nonHomePageClassA},.@{nonHomePageClassB}{ 
+  #contributeContainer{
+    position:absolute;
+    top:@navHeight;
+    left:0px;
+    width:100%;
+    background-color: @primaryColor;
+    z-index:100;
+    color:#fff;
+    a{
+      font-size:15px !important;
+      padding:1em 0;
       display:block;
+      margin:0 auto;
+    }
+  }
+  #contributeContainer{
+    a{
+      color:#fff !important; 
+      text-align:center;
+    }
+    .contributeButton{
+      text-align:center;
+      display:none;
+      &:first-child{
+        display:block;
+      }
     }
   }
 }
@@ -1193,7 +1264,7 @@ body:not(.collection-type-gallery).banner-button-corner-style-pill {
     > a,
     > a:visited,
     > .folder-toggle{
-      text-decoration: underline;
+      text-decoration: underline !important;
     }
   }
   .subnav{
