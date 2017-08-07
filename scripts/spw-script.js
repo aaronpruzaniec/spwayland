@@ -53,8 +53,12 @@ balanceSides = function(){
         $('#header #mainNavigation').css({'padding-right':(SPW.nav.lrDiff)+'px'});
     }
 }
+tempInjectHTML = function(){
+    $('<a href="http://crowdpac.com/c/spwayland" class="m-tb-1 sqs-block-button-element--small sqs-block-button-element" data-initialized="true">Contribute Now</a>').appendTo('.collection-type-index #page #content .sqs-block-content');
+}
 $(document).ready(function(){
     builldNavigation();
+    tempInjectHTML();
 });
 $(window).on('load',function(){
 

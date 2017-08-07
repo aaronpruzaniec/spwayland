@@ -67,7 +67,30 @@
   text-decoration: none;
 }
 
-
+.sqs-block-button-element {
+    display:inline-block;
+    color:#fff;
+    padding: 13px 26px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-family:'Changa One', helvetica, cursive;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 300;
+    font-style: normal;
+    color: #fff;
+    background-color: @primaryColor;
+    border-color: #1f2526;
+    &:hover,:active{
+      opacity:1;
+    }
+}
+.@{homePageClass}{
+  .sqs-block-button-element {
+    font-size:25px;
+  }
+}
 /* Banner */
 
 // tweak: { "type" : "color", "title" : "Banner Overlay Color", "category" : "Banner Section", "target" : ".banner-thumbnail-wrapper, .sqs-featured-posts-gallery, #promotedGalleryWrapper, .promoted-gallery-wrapper", "showOnlyWhenPresent" : ".banner-thumbnail-wrapper, .sqs-featured-posts-gallery, #promotedGalleryWrapper .sqs-gallery, .blog-item-wrapper, .promoted-gallery-wrapper .sqs-gallery"  }

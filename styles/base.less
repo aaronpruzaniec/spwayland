@@ -16,6 +16,12 @@
 @nonHomePageClassB:~"collection-type-blog";
 @homePageClass:~"collection-type-index";
 
+// global utility
+.m-tb-1{
+  margin-top:1em;
+  margin-bottom:1em;
+}
+
 
 // Mixins
 .max-letter-spacing (@spacing,@max) when (@spacing > @max) {
@@ -201,13 +207,13 @@ h2 {
 
 h2,
 .summary-title a {
-  color:@heading2Color;
+  color:@secondaryColor;
 }
 h3 {
   .heading3-font;
 }
 h3 {
-  color:@heading3Color;
+  color:@secondaryColor;
 }
 
 h1,
@@ -407,6 +413,19 @@ blockquote {
   #header {
     padding: 0;
     position: absolute;
+    left:24px;
+    top:24px;
+    max-width:104px;
+    #mainNavigation{
+      padding:22px 0 0 0 !important;
+    }
+    .collection{
+      text-align: center;
+      a{
+        padding-left:0px;
+        padding-right:0px;
+      }
+    }
   }
 }
 
@@ -541,17 +560,37 @@ body:not(.has-banner-image),
   padding: (@sitePadding * 3) @sitePadding;
   .font-smoothing(@pageBgColor);
 }
+// index homePageClass
 .@{homePageClass}{
   #page{
     position:fixed;
     z-index:1;
     height: 100%;
     width:100%;
-    background-color: red;
+    background-image: url(/assets/hero1.jpg);
+    background-size: cover;
+    background-position: 50% 50%;
+    text-align: center;
     top:0px;
+    display: table;
+    #content{
+      display: table-cell;
+      vertical-align: middle;
+      #new-page{
+        border-top:122px solid rgba(0,0,0,0);
+        position: relative;
+      }
+      *{
+        //color:@secondaryColor; 
+      }
+    }
     *{
       //display: none !important;
     }
+  }
+  .sqs-block-content *{
+    letter-spacing: .2em;
+    text-transform: uppercase;
   }
   .banner-thumbnail-wrapper{
     display:none;
@@ -564,8 +603,28 @@ body:not(.has-banner-image),
       display:block;
       .col.sqs-col-4.span-4{
         display: none;
+        margin:0 auto; 
+        float:none;
         &:nth-child(1){
           display:block;
+        }
+        &:nth-child(2){
+          display:block;
+          position: absolute;
+          top:0px;
+          width:60px !important;
+          height:60px !important;
+          margin-top:-58px;
+          border-radius: 50%;
+          left:50%;
+          margin-left:-30px;
+          border-radius: 50%;
+          border:1px solid #000;
+          background-image: url(https://static1.squarespace.com/static/58c46323d482e95e8e64ff63/t/58c824dcff7c500377e10e78/1489511882261/Sean+W+1017-6.jpg?format=100w);
+          background-size:cover;
+          *{
+            display:none; 
+          }
         }
       }
     }

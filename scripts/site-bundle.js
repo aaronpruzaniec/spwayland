@@ -8,7 +8,7 @@
     var o = n(2);
     Y.use("node", function(e) { window.Singleton.create({ ready: function() {
                 if (e.one(".collection-type-index")) {
-                    if (window.innerWidth <= 640) return !1;
+                    if (window.innerWidth <= 767) return !1;
                     this.initializer(), this.bindUI(), this.syncUI() } }, initializer: function() {
                 return this.el = e.one(".show-on-scroll"), this.el ? (this.elOffset = e.one(this.el.getData("offset-el")), this.offsetBehavior = this.el.getData("offset-behavior") || "top", this.elOffset ? (e.one("body").prepend(e.Node.create('')), this.wrapper = e.one("#showOnScrollWrapper"), this.wrapper.setHTML(this.el._node.outerHTML), void 0) : void console.warn("No show on scroll offset element found.")) : void console.warn("No show on scroll element found.") }, bindUI: function() { this.scrollEvents(), e.one(window).on("resize", function() { this.syncUI() }, this) }, syncUI: function() { this.getVariables() }, getVariables: function() { "bottom" === this.offsetBehavior ? this.navShowPosition = this.elOffset.getY() + this.elOffset.get("offsetHeight") : this.navShowPosition = this.elOffset.getY() }, scrollEvents: function() { this.scrolling = !1, e.one(window).on("scroll", function() { this.scrolling === !1 && (this.scrolling = !0, this.scrollLogic(), o(function() { this.scrolling = !1 }, 300, this)) }, this) }, scrollLogic: function() { window.pageYOffset > this.navShowPosition ? this.wrapper.addClass("show") : this.wrapper.removeClass("show"), e.later(100, this, function() { this.scrolling === !0 && window.requestAnimationFrame(e.bind(function() { this.scrollLogic() }, this)) }) } }) }) }, function(e, t) {
     function n(e, t, n) { t = t || 100, n = n || window, e && (o && o.cancel(), o = Y.later(t, n, e)) }
@@ -55,7 +55,7 @@
                     if (e.one(".index-section")) {
                         var n = e.one(".index-section").getDOMNode();
                         t = n.getBoundingClientRect().bottom + window.pageYOffset } };
-                if (n(), e.one(".collection-type-index") && window.innerWidth <= 640) {
+                if (n(), e.one(".collection-type-index") && window.innerWidth <= 767) {
                     var o = function() { t - window.pageYOffset <= 0 ? e.one("body").addClass("fix-header-nav") : e.one("body").removeClass("fix-header-nav") };
                     e.one(window).on("resize", function() { n() }), o(), e.one(window).on("scroll", function() { o() }, this), e.one(".mobile-nav-toggle.fixed-nav-toggle").on("click", function() { e.one("body").hasClass("fix-header-nav") && e.one("body").removeClass("fix-header-nav") }), e.one(window).on(["touchstart", "MSPointerDown"], function() { this._timeout && this._timeout.cancel(), this.isHidden = !0, this.isHidden === !0 && (e.one(".mobile-nav-toggle.fixed-nav-toggle").setStyle("opacity", 1), this.isHidden = !1) }, this), e.one(window).on(["touchend", "MSPointerUp"], function() { this._timeout = e.later(1500, this, function() { this.isHidden = !0, e.one(".mobile-nav-toggle.fixed-nav-toggle").setStyle("opacity", 0) }) }, this) } }, addPaddingToFooter: function() {
                 var t = parseInt(e.one("#footer").getStyle("paddingBottom"), 10),
