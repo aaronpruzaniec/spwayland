@@ -15,11 +15,624 @@
 @nonHomePageClassA:~"collection-type-page";
 @nonHomePageClassB:~"collection-type-blog";
 @homePageClass:~"collection-type-index";
-
+@desktopMin:768px;
+@mobileMax:767px;
 // global utility
+.caps{
+  text-transform:uppercase;
+}
 .m-tb-1{
   margin-top:1em;
   margin-bottom:1em;
+}
+.text-center{
+  text-align:center;
+}
+.changaone{
+  font-family: 'Changa One', helvetica, cursive !important;
+  font-weight: 600;
+  font-style: normal;
+}
+.c-033b72,.c-secondary{
+  color:@secondaryColor;
+}
+.fs-70 {
+  font-size: 70px;
+}
+
+.fs-69 {
+  font-size: 69px;
+}
+
+.fs-68 {
+  font-size: 68px;
+}
+
+.fs-67 {
+  font-size: 67px;
+}
+
+.fs-66 {
+  font-size: 66px;
+}
+
+.fs-65 {
+  font-size: 65px;
+}
+
+.fs-64 {
+  font-size: 64px;
+}
+
+.fs-63 {
+  font-size: 63px;
+}
+
+.fs-62 {
+  font-size: 62px;
+}
+
+.fs-61 {
+  font-size: 61px;
+}
+
+.fs-60 {
+  font-size: 60px;
+}
+
+.fs-59 {
+  font-size: 59px;
+}
+
+.fs-58 {
+  font-size: 58px;
+}
+
+.fs-57 {
+  font-size: 57px;
+}
+
+.fs-56 {
+  font-size: 56px;
+}
+
+.fs-55 {
+  font-size: 55px;
+}
+
+.fs-54 {
+  font-size: 54px;
+}
+
+.fs-53 {
+  font-size: 53px;
+}
+
+.fs-52 {
+  font-size: 52px;
+}
+
+.fs-51 {
+  font-size: 51px;
+}
+
+.fs-50 {
+  font-size: 50px;
+}
+
+.fs-49 {
+  font-size: 49px;
+}
+
+.fs-48 {
+  font-size: 48px;
+}
+
+.fs-47 {
+  font-size: 47px;
+}
+
+.fs-46 {
+  font-size: 46px;
+}
+
+.fs-45 {
+  font-size: 45px;
+}
+
+.fs-44 {
+  font-size: 44px;
+}
+
+.fs-43 {
+  font-size: 43px;
+}
+
+.fs-42 {
+  font-size: 42px;
+}
+
+.fs-41 {
+  font-size: 41px;
+}
+
+.fs-40 {
+  font-size: 40px;
+}
+
+.fs-39 {
+  font-size: 39px;
+}
+
+.fs-38 {
+  font-size: 38px;
+}
+
+.fs-37 {
+  font-size: 37px;
+}
+
+.fs-36 {
+  font-size: 36px;
+}
+
+.fs-35 {
+  font-size: 35px;
+}
+
+.fs-34 {
+  font-size: 34px;
+}
+
+.fs-33 {
+  font-size: 33px;
+}
+
+.fs-32 {
+  font-size: 32px;
+}
+
+.fs-31 {
+  font-size: 31px;
+}
+
+.fs-30 {
+  font-size: 30px;
+}
+
+.fs-29 {
+  font-size: 29px;
+}
+
+.fs-28 {
+  font-size: 28px;
+}
+
+.fs-27 {
+  font-size: 27px;
+}
+
+.fs-26 {
+  font-size: 26px;
+}
+
+.fs-25 {
+  font-size: 25px;
+}
+
+.fs-24 {
+  font-size: 24px;
+}
+
+.fs-23 {
+  font-size: 23px;
+}
+
+.fs-22 {
+  font-size: 22px;
+}
+
+.fs-21 {
+  font-size: 21px;
+}
+
+.fs-20 {
+  font-size: 20px;
+}
+
+.fs-19 {
+  font-size: 19px;
+}
+
+.fs-18 {
+  font-size: 18px;
+}
+
+.fs-17 {
+  font-size: 17px;
+}
+
+.fs-16 {
+  font-size: 16px;
+}
+
+.fs-15 {
+  font-size: 15px;
+}
+
+.fs-14 {
+  font-size: 14px;
+}
+
+.fs-13 {
+  font-size: 13px;
+}
+
+.fs-12 {
+  font-size: 12px;
+}
+
+.fs-11 {
+  font-size: 11px;
+}
+
+.fs-10 {
+  font-size: 10px;
+}
+
+.fs-9 {
+  font-size: 9px;
+}
+
+.fs-8 {
+  font-size: 8px;
+}
+
+.fs-7 {
+  font-size: 7px;
+}
+
+.fs-6 {
+  font-size: 6px;
+}
+
+.fs-5 {
+  font-size: 5px;
+}
+
+.fs-4 {
+  font-size: 4px;
+}
+
+.fs-3 {
+  font-size: 3px;
+}
+
+.fs-2 {
+  font-size: 2px;
+}
+
+.fs-1 {
+  font-size: 1px;
+}
+.ls-300 {
+  letter-spacing: .3em
+}
+
+.ls-295 {
+  letter-spacing: .295em
+}
+
+.ls-290 {
+  letter-spacing: .29em
+}
+
+.ls-285 {
+  letter-spacing: .285em
+}
+
+.ls-280 {
+  letter-spacing: .28em
+}
+
+.ls-275 {
+  letter-spacing: .275em
+}
+
+.ls-270 {
+  letter-spacing: .27em
+}
+
+.ls-265 {
+  letter-spacing: .265em
+}
+
+.ls-260 {
+  letter-spacing: .26em
+}
+
+.ls-255 {
+  letter-spacing: .255em
+}
+
+.ls-250 {
+  letter-spacing: .25em
+}
+
+.ls-245 {
+  letter-spacing: .245em
+}
+
+.ls-240 {
+  letter-spacing: .24em
+}
+
+.ls-235 {
+  letter-spacing: .235em
+}
+
+.ls-230 {
+  letter-spacing: .23em
+}
+
+.ls-225 {
+  letter-spacing: .225em
+}
+
+.ls-220 {
+  letter-spacing: .22em
+}
+
+.ls-215 {
+  letter-spacing: .215em
+}
+
+.ls-210 {
+  letter-spacing: .21em
+}
+
+.ls-205 {
+  letter-spacing: .205em
+}
+
+.ls-200 {
+  letter-spacing: .2em
+}
+
+.ls-195 {
+  letter-spacing: .195em
+}
+
+.ls-190 {
+  letter-spacing: .19em
+}
+
+.ls-185 {
+  letter-spacing: .185em
+}
+
+.ls-180 {
+  letter-spacing: .18em
+}
+
+.ls-175 {
+  letter-spacing: .175em
+}
+
+.ls-170 {
+  letter-spacing: .17em
+}
+
+.ls-165 {
+  letter-spacing: .165em
+}
+
+.ls-160 {
+  letter-spacing: .16em
+}
+
+.ls-155 {
+  letter-spacing: .155em
+}
+
+.ls-150 {
+  letter-spacing: .15em
+}
+
+.ls-145 {
+  letter-spacing: .145em
+}
+
+.ls-140 {
+  letter-spacing: .14em
+}
+
+.ls-135 {
+  letter-spacing: .135em
+}
+
+.ls-130 {
+  letter-spacing: .13em
+}
+
+.ls-125 {
+  letter-spacing: .125em
+}
+
+.ls-120 {
+  letter-spacing: .12em
+}
+
+.ls-115 {
+  letter-spacing: .115em
+}
+
+.ls-110 {
+  letter-spacing: .11em
+}
+
+.ls-105 {
+  letter-spacing: .105em
+}
+
+.ls-100 {
+  letter-spacing: .1em
+}
+
+.ls-95 {
+  letter-spacing: .095em
+}
+
+.ls-90 {
+  letter-spacing: .09em
+}
+
+.ls-85 {
+  letter-spacing: .085em
+}
+
+.ls-80 {
+  letter-spacing: .08em
+}
+
+.ls-75 {
+  letter-spacing: .075em
+}
+
+.ls-70 {
+  letter-spacing: .07em
+}
+
+.ls-65 {
+  letter-spacing: .065em
+}
+
+.ls-60 {
+  letter-spacing: .06em
+}
+
+.ls-55 {
+  letter-spacing: .055em
+}
+
+.ls-50 {
+  letter-spacing: .05em
+}
+
+.ls-45 {
+  letter-spacing: .045em
+}
+
+.ls-40 {
+  letter-spacing: .04em
+}
+
+.ls-35 {
+  letter-spacing: .035em
+}
+
+.ls-30 {
+  letter-spacing: .03em
+}
+
+.ls-25 {
+  letter-spacing: .025em
+}
+
+.ls-20 {
+  letter-spacing: .02em
+}
+
+.ls-15 {
+  letter-spacing: .015em
+}
+
+.ls-10 {
+  letter-spacing: .01em
+}
+
+.ls-5 {
+  letter-spacing: .005em
+}
+
+.ls-0 {
+  letter-spacing: 0em
+}
+
+.ls--5 {
+  letter-spacing: -.005em
+}
+
+.ls--10 {
+  letter-spacing: -.01em
+}
+
+.ls--15 {
+  letter-spacing: -.015em
+}
+
+.ls--20 {
+  letter-spacing: -.02em
+}
+
+.ls--25 {
+  letter-spacing: -.025em
+}
+
+.ls--30 {
+  letter-spacing: -.03em
+}
+
+.ls--35 {
+  letter-spacing: -.035em
+}
+
+.ls--40 {
+  letter-spacing: -.04em
+}
+
+.ls--45 {
+  letter-spacing: -.045em
+}
+
+.ls--50 {
+  letter-spacing: -.05em
+}
+
+.ls--55 {
+  letter-spacing: -.055em
+}
+
+.ls--60 {
+  letter-spacing: -.06em
+}
+
+.ls--65 {
+  letter-spacing: -.065em
+}
+
+.ls--70 {
+  letter-spacing: -.07em
+}
+
+.ls--75 {
+  letter-spacing: -.075em
+}
+
+.ls--80 {
+  letter-spacing: -.08em
+}
+.lh-2{
+  line-height: 2em !important
+}
+.lh-1-5{
+  line-height: 1.5em !important
+}
+.lh-1-25{
+  line-height: 1.25em !important
+}
+.lh-1{
+  line-height: 1em !important
 }
 
 
@@ -332,7 +945,7 @@ blockquote {
 }
 
 // for the pill on desktop
-@media screen and (min-width: 641px) {
+@media screen and (min-width: 768px) {
   .sqs-cart-dropzone {
     position: absolute;
     top: 100px;
@@ -560,8 +1173,33 @@ body:not(.has-banner-image),
   padding: (@sitePadding * 3) @sitePadding;
   .font-smoothing(@pageBgColor);
 }
-// index homePageClass
-.@{homePageClass}{
+// /**/index homePageClass
+#contentOuter{
+  .icon{ 
+    width:120px;
+    height:120px;
+    border-radius: 50%;
+    border:1px solid #000;
+  }
+}
+.collection-58c5d2dabebafb01e0518dc1{
+  #preFooter{
+    display: none;
+  }
+  #footer:before{
+    content:'Brought to you by the Committee to Elect Sean Patrick Wayland';
+    padding:.5em 1em;
+    display:inline-block;
+    font-size:8px;
+    letter-spacing: initial;
+    border:1px solid #fff;
+    font-family: arial, sans-serif;
+    color:#fff;
+  }
+  #footer{
+    text-align:center;
+    padding: .5em;
+  }
   #page{
     position:fixed;
     z-index:1;
@@ -577,7 +1215,7 @@ body:not(.has-banner-image),
       display: table-cell;
       vertical-align: middle;
       #new-page{
-        border-top:122px solid rgba(0,0,0,0);
+        //border-top:122px solid rgba(0,0,0,0);
         position: relative;
       }
       *{
@@ -630,8 +1268,43 @@ body:not(.has-banner-image),
     }
     //>
   }
+  @media screen and (max-width: @mobileMax) {
+    .mobile-nav-toggle{
+      top:0px;
+      left:0px;
+      right:initial;
+      margin:0px;
+      padding:0px;
+    }
+    .sqs-block-button-element{
+      font-size:12px;
+    }
+    #block-0369b59f8a2f2b7083bc{
+      .sqs-block-content{
+        > *:nth-child(1){
+          font-size:13px;
+        }
+        > *:nth-child(2){
+          font-size:13px;
+        }
+        > *:nth-child(3){
+          font-size:19px;
+        }
+      }
+    }
+  }
 }
-
+// /**/footer index
+#endorsementsOuter{
+  img{
+    height:56px;
+    width:auto;
+  }
+}
+#endorsementsInner{
+  padding:.25em;
+  text-align: center;
+}
 #content {
   width: 100%;
   display: block;
@@ -689,7 +1362,7 @@ li.filter {
   }
 }
 
-@media only screen and (min-width: 641px) {
+@media only screen and (min-width: 768px) {
 // d-nav
 .@{nonHomePageClassA},.@{nonHomePageClassB}{ 
     #header {
@@ -1342,7 +2015,7 @@ body:not(.collection-type-gallery).banner-button-corner-style-pill {
 
 
 
-@media only screen and (min-width: 641px) {
+@media only screen and (min-width: 768px) {
 
   .show-on-scroll-wrapper #header {
     position: fixed !important;
