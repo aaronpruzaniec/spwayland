@@ -315,6 +315,13 @@
 .fs-1 {
   font-size: 1px;
 }
+//font size in percentage
+.fs-65-p{
+  font-size:65%;
+}
+.fs-100-p{
+  font-size:100%;
+}
 .ls-300 {
   letter-spacing: .3em
 }
@@ -1176,18 +1183,22 @@ body:not(.has-banner-image),
 // /**/index homePageClass
 #contentOuter{
   .icon{ 
-    width:120px;
-    height:120px;
+    width:3em;
+    height:3em;
     border-radius: 50%;
     border:1px solid #000;
   }
 }
 .collection-58c5d2dabebafb01e0518dc1{
+  #logoWrapper{
+    position:static;
+    margin-left:0px;
+  }
   #preFooter{
     display: none;
   }
   #footer:before{
-    content:'Brought to you by the Committee to Elect Sean Patrick Wayland';
+    content:'Brought to you by the Committee to Elect Sean Patrick Wayland. Lori Aghazarian, Treasurer.';
     padding:.5em 1em;
     display:inline-block;
     font-size:8px;
@@ -1293,6 +1304,29 @@ body:not(.has-banner-image),
       }
     }
   }
+  @media screen and (max-width:767px){
+    #logoWrapper{
+      display: none;
+    }
+    #contentOuter{
+      font-size:32px;
+    }
+  }
+  @media screen and (max-width:530px){
+    #contentOuter{
+      font-size:26px;
+    }
+  }
+  @media screen and (max-width:428px){
+    #contentOuter{
+      font-size:22px;
+    }
+  }
+  @media screen and (max-width:375px){
+    #contentOuter{
+      font-size:18px;
+    }
+  }
 }
 // /**/footer index
 #endorsementsOuter{
@@ -1309,7 +1343,101 @@ body:not(.has-banner-image),
   width: 100%;
   display: block;
 }
+// /**/modal
+#contributeOuter{
+  color:#fff;  
+  *{
+    display:none;
+  }
+  .outer{
+    .left,.right{
+      //width:50%;
+      text-align:center;
+      //padding:10em 3em;
+      box-sizing:border-box;
+      position: absolute;
+      height: 50%;
+      width: 100%;
+      left: 0;
+      padding:0 3em;
+      display:table;
+    }
+    .leftInner,.rightInner{
+      display:table-cell;
+      vertical-align: middle;
+    }
+    .left{
+      //float:left;
+      top: 0;
+    }
+    .right{
+      //float:right;
+      bottom:0;
 
+      input{
+        background-color: @primaryColor;
+        border:6px solid #fff;
+      }
+    }
+  }
+  #emailInputOuter{
+    padding:1em 0;
+  }
+  #emailInput{
+    padding:.5em;
+    color:#fff;
+    display:block;
+    width:100%;
+    box-sizing: border-box;
+  }
+}
+#donateOuter{
+  padding:1em 0;
+}
+#donateInner{
+  display:table;
+  width:100%;
+  .donation{
+    color:#fff;
+    display:table-cell;
+    text-align: center;
+    padding:.5em;
+    border:6px solid #fff;
+    border-left:0px solid #fff;
+    cursor:pointer;
+    &:hover{
+      background-color: #fff;
+      color:@primaryColor;
+    }
+  }
+  .donation:first-child{
+    border-left:6px solid #fff;
+  }
+}
+#contributeClose{
+  position: absolute;
+  top:0px;
+  right:0px;
+  padding:1em;
+  cursor:pointer;
+  z-index: 1;
+}
+#openLinkOuter{
+  position:absolute;
+  height:100%;
+  z-index:1;
+}
+@media screen and (max-width:620px){
+  #contributeOuter{
+    font-size:20px;
+  }
+}
+@media screen and (max-width:420px){
+  #contributeOuter{
+    font-size:16px;
+  }
+}
+// /**/ END
 .collection-type-page #content {
   // max-width: @pageWidthNarrow;
   margin: auto;
@@ -1361,7 +1489,22 @@ li.filter {
     vertical-align: top;
   }
 }
-
+#logoWrapper,
+#logoImage {
+  width: @spwLogoContainerWidth;
+  height: @spwLogoContainerWidth;
+}
+#logoImage{
+  background-image: url('../assets/spwayland-logo.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#logoWrapper{
+  margin-left:-@spwLogoContainerWidth/2;
+  position:absolute;
+  top:(@navHeight - @spwLogoContainerWidth)/2;
+  left:50%;
+}
 @media only screen and (min-width: 768px) {
 // d-nav
 .@{nonHomePageClassA},.@{nonHomePageClassB}{ 
@@ -1393,22 +1536,6 @@ li.filter {
       }
       #headerNav {
         text-align: right;
-      }
-      #logoWrapper{
-        margin-left:-@spwLogoContainerWidth/2;
-        position:absolute;
-        top:(@navHeight - @spwLogoContainerWidth)/2;
-        left:50%;
-      }
-      #logoWrapper,
-      #logoImage {
-        width: @spwLogoContainerWidth;
-        height: @spwLogoContainerWidth;
-      }
-      #logoImage{
-        background-image: url('../assets/spwayland-logo.png');
-        background-repeat: no-repeat;
-        background-size: cover;
       }
       #siteTitleWrapper,
       #siteTitle {
@@ -1941,10 +2068,22 @@ body:not(.collection-type-gallery).banner-button-corner-style-pill {
 // MAIN NAVIGATION
 .@{homePageClass}{
   #contributeContainer{
-    position: absolute;
+    //position: absolute;
   }
   .collection{
     display: block !important;
+  }
+}
+#contributeContainer{
+  background-color: @primaryColor;
+  color:#fff;
+  width:100%;
+  a{
+    font-size:15px !important;
+    padding:1em;
+    display:block;
+    margin:0 auto;
+    color:#fff !important;
   }
 }
 .@{nonHomePageClassA},.@{nonHomePageClassB}{ 
@@ -1952,16 +2091,7 @@ body:not(.collection-type-gallery).banner-button-corner-style-pill {
     position:absolute;
     top:@navHeight;
     left:0px;
-    width:100%;
-    background-color: @primaryColor;
     z-index:100;
-    color:#fff;
-    a{
-      font-size:15px !important;
-      padding:1em 0;
-      display:block;
-      margin:0 auto;
-    }
   }
   #contributeContainer{
     a{
@@ -1976,6 +2106,9 @@ body:not(.collection-type-gallery).banner-button-corner-style-pill {
       }
     }
   }
+}
+#mobileNavigation a[href*='crowdpac.com']{
+  display: none !important;
 }
 .header-inner,#contributeContainer,
 #sidecarNav nav {
@@ -2285,7 +2418,6 @@ body:not(.collection-type-gallery).banner-button-corner-style-pill {
     position:absolute;
     top:0;
     bottom:0;
-    left:0;
     right:0;
     z-index:9999;
     cursor: e-resize;
@@ -2298,7 +2430,7 @@ body:not(.collection-type-gallery).banner-button-corner-style-pill {
   width: 260px;
   z-index: -1;
   top: 0;
-  right: 0;
+  left: 0;
   bottom: 0;
   height: 100%;
   line-height: 1em;

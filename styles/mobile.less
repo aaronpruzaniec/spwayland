@@ -197,9 +197,9 @@
 
 @media only screen and (max-width: 767px) {
 
-	#page {
-		padding: @sitePadding;
-	}
+	// #page {
+	// 	padding: @sitePadding;
+	// }
 
 	.collection-type-blog:not(.hide-sidebar) {
 		#content,
@@ -250,9 +250,9 @@
 	// collapse sqs layouts
   @import 'sqs-grid-breaker';
 
-  #page {
-  	padding: (@mobilePadding * 2) @mobilePadding;
-	}
+ //  #page {
+ //  	padding: (@mobilePadding * 2) @mobilePadding;
+	// }
 
 	#header {
 		padding: 0 @mobilePadding;
@@ -449,8 +449,8 @@
 		width: 10%;
 		position: absolute;
 		z-index: 1002;
-		top: 50%;
-		right: @mobilePadding;
+		top: 63%;
+		left: @mobilePadding;
 		margin-top: -8px;
 		padding: 0;
 		vertical-align: middle;
@@ -551,15 +551,16 @@
 	    visibility: visible;
       .transition2(height 0s 0.14s linear, visibility 0s 0s linear);
 		}
+		#siteWrapper,#contributeContainer{
+			-webkit-transform: translate3d(260px, 0, 0);
+			-moz-transform: translate3d(260px, 0, 0);
+			-ms-transform: translate3d(260px, 0, 0);
+			-o-transform: translate3d(260px, 0, 0);
+			transform: translate3d(260px, 0, 0);
+			position: fixed;
+		}
 		#siteWrapper {
-				position: fixed;
 				height: 100%;
-				-webkit-transform: translate3d(-260px, 0, 0);
-				-moz-transform: translate3d(-260px, 0, 0);
-				-ms-transform: translate3d(-260px, 0, 0);
-				-o-transform: translate3d(-260px, 0, 0);
-				transform: translate3d(-260px, 0, 0);
-
 				.mobile-nav-toggle {
 	        .top-bar,
 	        .bottom-bar {

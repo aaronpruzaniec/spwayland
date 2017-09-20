@@ -1,3 +1,25 @@
+To fix:
+*mobile menu opening right*
+*contribute overlap*
+*homepage scaling mobile*
+*mobile logo asset*
+*add treasury*
+*donate dupe on modal*
+*homepage logo*
+*add modal state query string*
+rotating bg
+add social media links
+internal menu 768px
+give newsletter destination
+contribute in menu mobile
+
+
+
+
+
+
+
+
 # template
 
 

@@ -1,10 +1,83 @@
-var SPW = {
+var SPW = {};
+var SPW= {'donations':{'donationsBuilt':false}};
+getDimentions = function(element){
+    var getDimensions = {};
+    getDimensions.offset = $(element).offset();
+    getDimensions.width = $(element).outerWidth();
+    getDimensions.height = $(element).outerHeight();
+    getDimensions.color = 'b80000';
+    return getDimensions;
+}
+clearInput = function(){
+    $('#emailInput').on('focus',function(){
+        console.log('input');
+        var a = $(this).attr('value');
+        console.log(a);
+        if (this.value==a) this.value='';
+    });
+}
+openModal = function(){
+    // $('.contributeButton a').each(function(){
+    //     var a = $(this).attr('href');
+    //     alert(a);
+    //     $(this).attr({'data-href':a});
+    //     $(this).attr({'href':''});
+    // });
+    SPW.contribute = [3,10,15,'other'];
+    SPW.modal = {};
+    $('#contributeContainer a').on('click',function(){ 
+        var a = '';
+        SPW.modal.dimentions = getDimentions(this);
+        if($('#contributeOuter').length){
 
-};
+        }else{
+            $('<div id="contributeOuter" class="fs-32" style="width:'+SPW.modal.dimentions.width+'px;height:'+SPW.modal.dimentions.height+'px;top:'+SPW.modal.dimentions.offset.top+'px;left:'+SPW.modal.dimentions.offset.left+'px;background-color:#'+SPW.modal.dimentions.color+';position:fixed;z-index:1001;display:none;"><div id="openLinkOuter"><div id="openLinkInner"></div></div><div id="contributeClose" class="changaone">X</div><div id="contributeInner"><div class="outer"><div class="left"><div class="leftInner"><div class="changaone">Donate</div><div id="donateOuter"><div id="donateInner"><a href="https://www.crowdpac.com/contribute/193015?amount=3" class="donation changaone" data="3">$3</a><a href="https://www.crowdpac.com/contribute/193015?amount=10" class="donation changaone" data="10">$10</a><a href="https://www.crowdpac.com/contribute/193015?amount=15" class="donation changaone" data="15">$15</a><a href="https://www.crowdpac.com/contribute/193015" class="donation changaone" data="other">other</a></div></div></div></div><div class="right"><div class="rightInner"><div class="changaone">Newsletter</div><div id="emailInputOuter"><input id="emailInput" class="changaone fs-20" value="enter email address"></div></div></div></div></div></div>').insertBefore('body');
+        }
+        // Build donation buttons once
+        if(SPW.donations.donationsBuilt){
+
+        }else{
+            for(i=0;i<SPW.contribute.length;i++){
+                if( Number.isInteger(SPW.contribute[i]) ){
+                    a ='$';
+                }else{
+                    a ='';
+                }
+                //$('#donateInner').append('<a class="donation changaone" data="'+SPW.contribute[i]+'">'+a+SPW.contribute[i]+'</a>');
+            }
+            SPW.modal.dimentions.donationsBuilt = true;
+        }
+        $('#contributeOuter').fadeIn();
+        $('#contributeOuter').animate({
+            left: '0px',
+            top: '0px',
+            width: '100%',
+            height: '100%'
+        }, 500, function() {
+            $('#contributeOuter *').fadeIn();
+        });
+        closeModal();
+        clearInput();
+        openModalLink();
+        return false;
+    });
+}
+openModalLink = function(){
+    $('#donateOuter .donation').click(function(){
+        var a = $(this).attr('data');
+
+    });
+}
+closeModal = function(){
+    $('#contributeClose').on('click',function(){
+        $('#contributeOuter').fadeOut();
+    })
+}
 builldNavigation = function(){
     $('#mainNavigation div:not(.folder):last-child').detach().appendTo('header .header-inner').addClass('contributeButton');
     $('<div id="contributeContainer"></div>').detach().prependTo('body');
     $('.contributeButton').detach().prependTo('#contributeContainer');
+    $('.collection-58c5d2dabebafb01e0518dc1 > #contributeContainer').remove();
     //number the headers for targeting
     // $('header').each(function(){
     //     $(this).children('')
@@ -20,7 +93,6 @@ builldNavigation = function(){
     balanceSides();
     // sortNav(1);
     // sortNav(2);
-    console.log(SPW.nav);
 
 }
 numberHeaders = function(){
@@ -59,7 +131,6 @@ calcDim = function(){
     SPW.footer.bottomOffset = $('.footer-inner').offset();
     SPW.footer.endorsementHeight = $('#endorsementsOuter').outerHeight();
     SPW.footer.offset = SPW.footer.bottomOffset.top-SPW.footer.topOffset.top;
-    console.log(SPW);
     // page height
     $('.collection-type-index #page').css({
         'height':(window.innerHeight-SPW.footer.offset-14-SPW.footer.endorsementHeight)+'px',
@@ -71,14 +142,15 @@ tempInjectHTML = function(){
     // index page content
     $('.collection-type-index .sqs-layout.sqs-grid-12.columns-12 *').remove();
     //index page endorsements
-    $('<div id="endorsementsOuter"><div class="fs-12 caps changaone c-secondary text-center">Endorsed by:</div><div id="endorsementsInner"><img src="../assets/vote-vets-logo-2x.jpg" alt="Vote Vets"></div></div>').insertAfter('.collection-58c5d2dabebafb01e0518dc1 #page');
+    $('<div id="endorsementsOuter"><div class="fs-65-p caps changaone c-secondary text-center">Endorsed by:</div><div id="endorsementsInner"><img src="../assets/vote-vets-logo-2x.jpg" alt="Vote Vets"></div></div>').insertAfter('.collection-58c5d2dabebafb01e0518dc1 #page');
     //$('').appendTo('');
-    $('<div id="contentOuter"><img class="icon" src="../assets/Sean-Patrick-Wayland.jpg" alt="Sean Patrick Wayland"><div id="contentInner"><div id="slide1"><div class="changaone fs-26 caps ls-200 c-secondary">SEAN PATRICK WAYLAND<br>PHILADELPHIAN. FATHER. VETERAN.</div><div class="changaone ls-200 lh-2 c-secondary fs-40">CARRYING<br>YOUR VOICE<br>TO HARRISBURG.</div></div></div></div>').appendTo('.collection-58c5d2dabebafb01e0518dc1 .content-inner .sqs-layout');
+    $('<div id="contentOuter" class="fs-40"><img class="icon" src="../assets/Sean-Patrick-Wayland.jpg" alt="Sean Patrick Wayland"><div id="contentInner"><div id="slide1"><div class="changaone fs-65-p caps ls-200 c-secondary">SEAN PATRICK WAYLAND<br>PHILADELPHIAN. FATHER. VETERAN.</div><div class="changaone ls-200 lh-2 c-secondary fs-100-p">CARRYING<br>YOUR VOICE<br>TO HARRISBURG.</div><div id="contributeContainer"><div class="external contributeButton"><a href="http://crowdpac.com/c/spwayland">Contribute</a></div></div></div></div></div>').appendTo('.collection-58c5d2dabebafb01e0518dc1 .content-inner .sqs-layout');
 }
 $(document).ready(function(){
     builldNavigation();
     tempInjectHTML();
     calcDim();
+    openModal();
 });
 $(window).on('load',function(){
 
