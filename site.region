@@ -242,6 +242,13 @@
         </aside>
         {.end}
         {.end}
+        <div id="backgrounds" class="hide">
+          <div class="overlay img img1"></div>
+          <div class="overlay img img2"></div>
+          <div class="overlay img img3"></div>
+          <div class="overlay img img4"></div>
+          <div class="overlay top"></div>
+        </div>
       </main>
 
       <div id="preFooter">
@@ -250,7 +257,7 @@
         </div>
       </div>
 
-      <footer id="footer" role="contentinfo">
+      <footer id="footer" class="text-center" role="contentinfo">
         <div class="footer-inner">
           <div class="nav-wrapper back-to-top-nav"><nav><div class="back-to-top"><a href="#header">Back to Top</a></div></nav></div>
           <squarespace:navigation navigationId="secondaryNav" template="secondary-navigation" />
